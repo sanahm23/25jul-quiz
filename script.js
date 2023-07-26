@@ -63,7 +63,10 @@ function setCurrentScreen() {
         if (currentUser.currentQuestion >= quizData.length) {
             displayScorePage()
         } else {
-            startQuiz();
+
+            box.style.display = "none";
+            boxquiz.style.display = "block";
+            scorePage.style.display = "none"
             displayQuestion()
 
         }
@@ -120,11 +123,6 @@ let quizData = [
 ];
 
 
-function startQuiz() {
-    box.style.display = "none";
-    boxquiz.style.display = "block";
-    scorePage.style.display = "none"
-}
 form.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -166,7 +164,10 @@ form.addEventListener("submit", function (event) {
     }
 
     usernameDisplay.textContent = username;
-    startQuiz();
+
+    box.style.display = "none";
+    boxquiz.style.display = "block";
+    scorePage.style.display = "none"
     displayQuestion();
 });
 
@@ -314,12 +315,3 @@ function restartApp() {
 }
 
 document.getElementById("restart").addEventListener("click", restartApp);
-
-// function shuffleQuestions() {
-//     for (let i = questions.length - 1; i > 0; i--) {
-//         let j = Math.floor(Math.random() * (i + 1));
-//         let temp = questions[i];
-//         questions[i] = questions[j];
-//         questions[j] = temp;
-//     }
-// }
